@@ -1,28 +1,54 @@
 package com.piratasweb.piratas.entities;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 
 import java.util.List;
 
-public class Projeto {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+@Table(name = "tb_projeto")
+public class Projeto implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nome;
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	private Long quantidadeHoras;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant dataEntrega;
 	private String prioridade;
 	private String descricao;
+	@ManyToOne
+	@JoinColumn(name = "funcionario_id")
 	private Funcionario lider;
 	private Double valorHora;
+	@OneToMany(mappedBy = "id.projeto")
 	private List<Funcionario> equipeAtiva = new ArrayList<>();
 	
 	public Projeto() {
 	
 	}
 
-	public Projeto(String nome, Cliente cliente, Long quantidadeHoras, Instant dataEntrega, String prioridade,
+	public Projeto(Long id, String nome, Cliente cliente, Long quantidadeHoras, Instant dataEntrega, String prioridade,
 			String descricao, Funcionario lider, Double valorHora, List<Funcionario> equipeAtiva) {
+		this.id = id;
 		this.nome = nome;
 		this.cliente = cliente;
 		this.quantidadeHoras = quantidadeHoras;
@@ -32,6 +58,15 @@ public class Projeto {
 		this.lider = lider;
 		this.valorHora = valorHora;
 		this.equipeAtiva = equipeAtiva;
+	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
