@@ -14,21 +14,18 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.piratasweb.piratas.entities.enums.Cargo;
 
-@Entity
-@Table(name = "tb_funcionario")
+
 public class Funcionario extends Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	private Cargo cargo;
 	private String foto;
 	private Double salario;
 	private String senha;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "funcionario")
+
 	private List<Projeto> projetos = new ArrayList<>();
 	
 	public Funcionario() {

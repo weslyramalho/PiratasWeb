@@ -17,29 +17,26 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@Entity
-@Table(name = "tb_projeto")
+
+
 public class Projeto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	private String nome;
-	@ManyToOne
-	@JoinColumn(name = "cliente_id")
+	
 	private Cliente cliente;
 	private Long quantidadeHoras;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant dataEntrega;
 	private String prioridade;
 	private String descricao;
-	@ManyToOne
-	@JoinColumn(name = "funcionario_id")
+	
 	private Funcionario lider;
 	private Double valorHora;
-	@OneToMany(mappedBy = "id.projeto")
+	
 	private List<Funcionario> equipeAtiva = new ArrayList<>();
 	
 	public Projeto() {

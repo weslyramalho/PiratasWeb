@@ -15,33 +15,57 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_cliente")
-public class Cliente extends Pessoa implements Serializable{
+public class Cliente implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String nome;
+	private String email;
+	private String telefone;
 	private String site;
 	private String cnpj;
 	private String logo;
 	
+	/*
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Projeto> projetos = new ArrayList<>();
-	
+*/
 	public Cliente() {
-		super();
+		
 	}
 	public Cliente(Long id, String nome, String email, String telefone, String site, String cnpj, String logo) {
-		super(nome, email, telefone);
 		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
 		this.site = site;
 		this.cnpj = cnpj;
 		this.logo = logo;
 	}
 	
 	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -66,11 +90,11 @@ public class Cliente extends Pessoa implements Serializable{
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
-	
+	/*
 	public List<Projeto> getProjetos() {
 		return projetos;
 	}
-	
+	*/
 	@Override
 	public String toString() {
 		return "Cliente [site=" + site + ", cnpj=" + cnpj + ", logo=" + logo + "]";
