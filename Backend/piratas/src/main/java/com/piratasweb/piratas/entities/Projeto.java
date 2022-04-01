@@ -30,41 +30,28 @@ public class Projeto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
-	private Long quantidadeHoras;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
-	private Instant dataEntrega;
-	private String prioridade;
-	private String descricao;
+	
 	private Funcionario lider;
-	private Double valorHora;
 	
 	@OneToMany(mappedBy = "id.projeto")
-	private Set<Funcionario> ativos = new HashSet<>();
+	private Set<OrderProjetos> ativos = new HashSet<>();
 	
 	public Projeto() {
 	
 	}
 
-	public Projeto(Long id, String nome, Cliente cliente, Long quantidadeHoras, Instant dataEntrega, String prioridade,
-			String descricao, Funcionario lider, Double valorHora, List<Funcionario> equipeAtiva) {
+	public Projeto(Long id, String nome, Cliente cliente, Funcionario lider) {
 		this.id = id;
 		this.nome = nome;
 		this.cliente = cliente;
-		this.quantidadeHoras = quantidadeHoras;
-		this.dataEntrega = dataEntrega;
-		this.prioridade = prioridade;
-		this.descricao = descricao;
 		this.lider = lider;
-		this.valorHora = valorHora;
-		this.equipeAtiva = equipeAtiva;
 	}
-	
 
 	public Long getId() {
 		return id;
@@ -90,38 +77,6 @@ public class Projeto implements Serializable{
 		this.cliente = cliente;
 	}
 
-	public Long getQuantidadeHoras() {
-		return quantidadeHoras;
-	}
-
-	public void setQuantidadeHoras(Long quantidadeHoras) {
-		this.quantidadeHoras = quantidadeHoras;
-	}
-
-	public Instant getDataEntrega() {
-		return dataEntrega;
-	}
-
-	public void setDataEntrega(Instant dataEntrega) {
-		this.dataEntrega = dataEntrega;
-	}
-
-	public String getPrioridade() {
-		return prioridade;
-	}
-
-	public void setPrioridade(String prioridade) {
-		this.prioridade = prioridade;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
 	public Funcionario getLider() {
 		return lider;
 	}
@@ -130,23 +85,16 @@ public class Projeto implements Serializable{
 		this.lider = lider;
 	}
 
-	public Double getValorHora() {
-		return valorHora;
+	public Set<OrderProjetos> getAtivos() {
+		return ativos;
 	}
 
-	public void setValorHora(Double valorHora) {
-		this.valorHora = valorHora;
-	}
-
-	public List<Funcionario> getEquipeAtiva() {
-		return equipeAtiva;
-	}
-
-	public void setEquipeAtiva(List<Funcionario> equipeAtiva) {
-		this.equipeAtiva = equipeAtiva;
+	public void setAtivos(Set<OrderProjetos> ativos) {
+		this.ativos = ativos;
 	}
 	
 	
+
 	
 	
 	
