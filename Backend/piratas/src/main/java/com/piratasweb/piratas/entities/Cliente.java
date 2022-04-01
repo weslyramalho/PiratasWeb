@@ -29,11 +29,11 @@ public class Cliente implements Serializable{
 	private String cnpj;
 	private String logo;
 	
-	/*
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Projeto> projetos = new ArrayList<>();
-*/
+
 	public Cliente() {
 		
 	}

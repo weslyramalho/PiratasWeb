@@ -3,8 +3,9 @@ package com.piratasweb.piratas.entities;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
-
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,31 +14,38 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.piratasweb.piratas.entities.pk.ProjetosPk;
 
 
-
+@Entity
+@Table(name = "tb_projeto")
 public class Projeto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nome;
-	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	private Long quantidadeHoras;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant dataEntrega;
 	private String prioridade;
 	private String descricao;
-	
 	private Funcionario lider;
 	private Double valorHora;
 	
-	private List<Funcionario> equipeAtiva = new ArrayList<>();
+	@OneToMany(mappedBy = "id.projeto")
+	private Set<Funcionario> ativos = new HashSet<>();
 	
 	public Projeto() {
 	

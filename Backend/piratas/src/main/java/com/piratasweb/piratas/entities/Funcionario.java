@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,9 +31,6 @@ public class Funcionario implements Serializable{
 	private String foto;
 	private Double salario;
 	private String senha;
-	
-
-	//private List<Projeto> projetos = new ArrayList<>();
 	
 	public Funcionario() {
 
