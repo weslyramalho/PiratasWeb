@@ -35,7 +35,9 @@ public class Funcionario implements Serializable{
 	private String senha;
 	
 	@OneToMany(mappedBy = "id.funcionario")
-	private Set<OrderProjetos> ativo = new HashSet<>();
+	private Set<OrderProjetos> ativo = new HashSet<>(); 
+	
+
 	
 	public Funcionario() {
 

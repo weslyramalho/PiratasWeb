@@ -9,32 +9,24 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.piratasweb.piratas.entities.pk.ProjetosPk;
+
 @Entity
-@Table(name = "tb_orde_projetos")
+@Table(name = "tb_orde_projetos") 
 public class OrderProjetos {
 
 	@EmbeddedId
 	private ProjetosPk id = new ProjetosPk();
-	private Long quantidadeHoras;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
-	private Instant dataEntrega;
-	private String prioridade;
-	private String descricao;
-	private Double valorHora;
+	private Double valor;
 	
 	public OrderProjetos() {
 		
 	}
 
-	public OrderProjetos(Funcionario funcionario, Projeto projeto, Long quantidadeHoras, Instant dataEntrega, String prioridade, String descricao,
-			Double valorHora) {
+	public OrderProjetos(Funcionario funcionario, Projeto projeto, Double valor) {
 		id.setFuncionario(funcionario);
 		id.setProjeto(projeto);
-		this.quantidadeHoras = quantidadeHoras;
-		this.dataEntrega = dataEntrega;
-		this.prioridade = prioridade;
-		this.descricao = descricao;
-		this.valorHora = valorHora;
+		this.valor = valor;
+		
 	}
 	
 	@JsonIgnore
@@ -51,45 +43,15 @@ public class OrderProjetos {
 		id.setProjeto(projeto);
 	}
 
-	public Long getQuantidadeHoras() {
-		return quantidadeHoras;
+	public Double getValor() {
+		return valor;
 	}
 
-	public void setQuantidadeHoras(Long quantidadeHoras) {
-		this.quantidadeHoras = quantidadeHoras;
+	public void setValor(Double valor) {
+		getProjeto().preco(valor);
 	}
 
-	public Instant getDataEntrega() {
-		return dataEntrega;
-	}
-
-	public void setDataEntrega(Instant dataEntrega) {
-		this.dataEntrega = dataEntrega;
-	}
-
-	public String getPrioridade() {
-		return prioridade;
-	}
-
-	public void setPrioridade(String prioridade) {
-		this.prioridade = prioridade;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public Double getValorHora() {
-		return valorHora;
-	}
-
-	public void setValorHora(Double valorHora) {
-		this.valorHora = valorHora;
-	}
+	
 	
 	
 	

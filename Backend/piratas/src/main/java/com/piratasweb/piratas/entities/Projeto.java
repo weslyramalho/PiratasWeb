@@ -35,55 +35,151 @@ public class Projeto implements Serializable{
 	private String nome;
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
-	private Cliente cliente;
-	
+	private Cliente cliente;	
 	private Funcionario lider;
+	private Long quantidadeHoras;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+	private Instant dataEntrega;
+	private String prioridade;
+	private String descricao;
+	private Double valorHora;
+	
 	
 	@OneToMany(mappedBy = "id.projeto")
-	private Set<OrderProjetos> ativos = new HashSet<>();
+	private Set<OrderProjetos> ativos = new HashSet<>(); 
+	
+
 	
 	public Projeto() {
 	
 	}
 
-	public Projeto(Long id, String nome, Cliente cliente, Funcionario lider) {
+	
+
+	public Projeto(Long id, String nome, Cliente cliente, Funcionario lider, Long quantidadeHoras, Instant dataEntrega,
+			String prioridade, String descricao, Double valorHora) {
+		
 		this.id = id;
 		this.nome = nome;
 		this.cliente = cliente;
 		this.lider = lider;
+		this.quantidadeHoras = quantidadeHoras;
+		this.dataEntrega = dataEntrega;
+		this.prioridade = prioridade;
+		this.descricao = descricao;
+		this.valorHora = valorHora;
 	}
+	
+
+
 
 	public Long getId() {
 		return id;
 	}
 
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+
 
 	public Cliente getCliente() {
 		return cliente;
 	}
 
+
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+
 
 	public Funcionario getLider() {
 		return lider;
 	}
 
+
+
 	public void setLider(Funcionario lider) {
 		this.lider = lider;
 	}
+
+
+
+	public Long getQuantidadeHoras() {
+		return quantidadeHoras;
+	}
+
+
+
+	public void setQuantidadeHoras(Long quantidadeHoras) {
+		this.quantidadeHoras = quantidadeHoras;
+	}
+
+
+
+	public Instant getDataEntrega() {
+		return dataEntrega;
+	}
+
+
+
+	public void setDataEntrega(Instant dataEntrega) {
+		this.dataEntrega = dataEntrega;
+	}
+
+
+
+	public String getPrioridade() {
+		return prioridade;
+	}
+
+
+
+	public void setPrioridade(String prioridade) {
+		this.prioridade = prioridade;
+	}
+
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
+
+	public Double getValorHora() {
+		return valorHora;
+	}
+
+
+
+	public void setValorHora(Double valorHora) {
+		this.valorHora = valorHora;
+	}
+
+
 
 	public Set<OrderProjetos> getAtivos() {
 		return ativos;
@@ -91,6 +187,10 @@ public class Projeto implements Serializable{
 
 	public void setAtivos(Set<OrderProjetos> ativos) {
 		this.ativos = ativos;
+	}
+	
+	public Double preco (Double total) {
+		return total = getValorHora() * getQuantidadeHoras();
 	}
 	
 	
