@@ -6,25 +6,25 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.piratasweb.piratas.entities.Cliente;
-import com.piratasweb.piratas.repositories.ClienteRepository;
+import com.piratasweb.piratas.entities.Projeto;
+import com.piratasweb.piratas.repositories.ProjetoRepository;
 
 @Service
 public class ProjetoService {
 	
 	@Autowired
-	private ClienteRepository repository;
+	private ProjetoRepository repository;
 	
-	public List<Cliente> findAll(){
+	public List<Projeto> findAll(){
 		return repository.findAll();
 	}
 	
-	public Optional<Cliente> findById(Long id) {
+	public Optional<Projeto> findById(Long id) {
 		return repository.findById(id);
 
 	}
 	
-	public Cliente insert(Cliente obj) {
+	public Projeto insert(Projeto obj) {
 		return repository.save(obj);
 	}
 	
