@@ -2,7 +2,9 @@ package com.piratasweb.piratas.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +33,9 @@ public class Funcionario implements Serializable{
 	private String foto;
 	private Double salario;
 	private String senha;
+	
+	@OneToMany(mappedBy = "id.funcionario")
+	private Set<OrderProjetos> ativo = new HashSet<>();
 	
 	public Funcionario() {
 
