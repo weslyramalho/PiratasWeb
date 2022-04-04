@@ -37,7 +37,10 @@ public class Projeto implements Serializable{
 	private String nome;
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
-	private Cliente cliente;	
+	private Cliente cliente;
+	@ManyToOne
+	@JoinColumn(name = "lider_id")
+	private Funcionario lider;
 	private Long quantidadeHoras;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant dataEntrega;
@@ -59,12 +62,13 @@ public class Projeto implements Serializable{
 	}
 	
 
-	public Projeto(Long id, String nome, Cliente cliente, Long quantidadeHoras, Instant dataEntrega,
+	public Projeto(Long id, String nome, Cliente cliente, Funcionario lider,Long quantidadeHoras, Instant dataEntrega,
 			String prioridade, String descricao, Double valorHora, List<Funcionario> funcionarios) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cliente = cliente;
+		this.lider = lider;
 		this.quantidadeHoras = quantidadeHoras;
 		this.dataEntrega = dataEntrega;
 		this.prioridade = prioridade;
@@ -73,6 +77,17 @@ public class Projeto implements Serializable{
 		this.funcionarios = funcionarios;
 	}
 	
+	
+
+
+	public Funcionario getLider() {
+		return lider;
+	}
+
+
+	public void setLider(Funcionario lider) {
+		this.lider = lider;
+	}
 
 
 	public Long getId() {

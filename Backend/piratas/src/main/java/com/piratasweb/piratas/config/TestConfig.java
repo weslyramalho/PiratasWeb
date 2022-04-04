@@ -56,7 +56,7 @@ public class TestConfig implements CommandLineRunner{
 		funcionarios.addAll(funcionarioRepository.findAll());
 
 		
-		Projeto p1 = new Projeto(1L, "COMETA X", c1, 25L, Instant.parse("2019-06-20T21:53:07Z"), "Alta", "Projetos web marter", 150.0, funcionarios);
+		Projeto p1 = new Projeto(1L, "COMETA X", c1, f4, 25L, Instant.parse("2019-06-20T21:53:07Z"), "Alta", "Projetos web marter", 150.0, funcionarios);
 		
 		projetoRepository.save(p1);
 		
