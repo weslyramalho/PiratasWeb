@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -36,41 +38,41 @@ public class Projeto implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;	
-	private Funcionario lider;
 	private Long quantidadeHoras;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant dataEntrega;
 	private String prioridade;
 	private String descricao;
 	private Double valorHora;
+	@ManyToMany
+	@JoinTable(name = "Funcionario_Projetos", 
+			joinColumns = @JoinColumn(name= "projeto_id"),
+			inverseJoinColumns = @JoinColumn(name = "funcionario_id"))
+	private List<Funcionario> funcionarios;
 	
 	
-	@OneToMany(mappedBy = "id.projeto")
-	private Set<OrderProjetos> ativos = new HashSet<>(); 
 	
 
 	
 	public Projeto() {
 	
 	}
-
 	
 
-	public Projeto(Long id, String nome, Cliente cliente, Funcionario lider, Long quantidadeHoras, Instant dataEntrega,
-			String prioridade, String descricao, Double valorHora) {
-		
+	public Projeto(Long id, String nome, Cliente cliente, Long quantidadeHoras, Instant dataEntrega,
+			String prioridade, String descricao, Double valorHora, List<Funcionario> funcionarios) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.cliente = cliente;
-		this.lider = lider;
 		this.quantidadeHoras = quantidadeHoras;
 		this.dataEntrega = dataEntrega;
 		this.prioridade = prioridade;
 		this.descricao = descricao;
 		this.valorHora = valorHora;
+		this.funcionarios = funcionarios;
 	}
 	
-
 
 
 	public Long getId() {
@@ -78,11 +80,9 @@ public class Projeto implements Serializable{
 	}
 
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 
 	public String getNome() {
@@ -90,11 +90,9 @@ public class Projeto implements Serializable{
 	}
 
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 
 
 	public Cliente getCliente() {
@@ -102,23 +100,12 @@ public class Projeto implements Serializable{
 	}
 
 
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
 
-
-	public Funcionario getLider() {
-		return lider;
-	}
-
-
-
-	public void setLider(Funcionario lider) {
-		this.lider = lider;
-	}
-
+	
 
 
 	public Long getQuantidadeHoras() {
@@ -126,11 +113,9 @@ public class Projeto implements Serializable{
 	}
 
 
-
 	public void setQuantidadeHoras(Long quantidadeHoras) {
 		this.quantidadeHoras = quantidadeHoras;
 	}
-
 
 
 	public Instant getDataEntrega() {
@@ -138,11 +123,9 @@ public class Projeto implements Serializable{
 	}
 
 
-
 	public void setDataEntrega(Instant dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
-
 
 
 	public String getPrioridade() {
@@ -150,11 +133,9 @@ public class Projeto implements Serializable{
 	}
 
 
-
 	public void setPrioridade(String prioridade) {
 		this.prioridade = prioridade;
 	}
-
 
 
 	public String getDescricao() {
@@ -162,17 +143,14 @@ public class Projeto implements Serializable{
 	}
 
 
-
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
 
-
 	public Double getValorHora() {
 		return valorHora;
 	}
-
 
 
 	public void setValorHora(Double valorHora) {
@@ -181,6 +159,20 @@ public class Projeto implements Serializable{
 
 
 
+
+
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
+
+	/*
+
 	public Set<OrderProjetos> getAtivos() {
 		return ativos;
 	}
@@ -188,9 +180,9 @@ public class Projeto implements Serializable{
 	public void setAtivos(Set<OrderProjetos> ativos) {
 		this.ativos = ativos;
 	}
-	
-	public Double preco (Double total) {
-		return total = getValorHora() * getQuantidadeHoras();
+	*/
+	public Double getPreco() {
+		return valorHora * quantidadeHoras;
 	}
 	
 	

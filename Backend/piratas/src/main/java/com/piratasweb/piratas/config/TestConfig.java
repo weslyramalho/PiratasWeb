@@ -1,7 +1,9 @@
 package com.piratasweb.piratas.config;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -29,6 +31,8 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private ProjetoRepository projetoRepository;
+	
+
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -48,9 +52,17 @@ public class TestConfig implements CommandLineRunner{
 
 		funcionarioRepository.saveAll(Arrays.asList(f1, f2, f3, f4, f5, f6));
 		
-		Projeto p1 = new Projeto(1L, "COMETA X", c1, f4, 25L, Instant.parse("2019-06-20T21:53:07Z"), "Alta", "Projetos web marter", 150.0);
+		List<Funcionario> funcionarios = new ArrayList<>();
+		funcionarios.addAll(funcionarioRepository.findAll());
+
+		
+		Projeto p1 = new Projeto(1L, "COMETA X", c1, 25L, Instant.parse("2019-06-20T21:53:07Z"), "Alta", "Projetos web marter", 150.0, funcionarios);
 		
 		projetoRepository.save(p1);
+		
+		//OrderProjetos o1 = new OrderProjetos(f1, p1, p1.getPreco());
+		
+		//orderProjetosRepository.save(o1);
 	}
 
 }

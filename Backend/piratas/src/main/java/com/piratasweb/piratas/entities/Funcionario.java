@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -34,8 +35,8 @@ public class Funcionario implements Serializable{
 	private Double salario;
 	private String senha;
 	
-	@OneToMany(mappedBy = "id.funcionario")
-	private Set<OrderProjetos> ativo = new HashSet<>(); 
+	@ManyToMany(mappedBy = "funcionarios")
+	private List<Projeto> projetos;
 	
 
 	
@@ -78,13 +79,13 @@ public class Funcionario implements Serializable{
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	/*
+	
 	public List<Projeto> getProjetos() {
 		return projetos;
 	}
 	public void setProjetos(List<Projeto> projetos) {
 		this.projetos = projetos;
-	} */
+	}
 	public Cargo getCargo() {
 		return cargo;
 	}
