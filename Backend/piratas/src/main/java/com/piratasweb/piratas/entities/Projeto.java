@@ -22,7 +22,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.piratasweb.piratas.entities.pk.ProjetosPk;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -47,6 +47,7 @@ public class Projeto implements Serializable{
 	private String prioridade;
 	private String descricao;
 	private Double valorHora;
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "Funcionario_Projetos", 
 			joinColumns = @JoinColumn(name= "projeto_id"),
@@ -185,17 +186,6 @@ public class Projeto implements Serializable{
 		this.funcionarios = funcionarios;
 	}
 
-
-	/*
-
-	public Set<OrderProjetos> getAtivos() {
-		return ativos;
-	}
-
-	public void setAtivos(Set<OrderProjetos> ativos) {
-		this.ativos = ativos;
-	}
-	*/
 	public Double getPreco() {
 		return valorHora * quantidadeHoras;
 	}

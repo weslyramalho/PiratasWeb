@@ -34,7 +34,7 @@ public class Funcionario implements Serializable{
 	private String foto;
 	private Double salario;
 	private String senha;
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "funcionarios")
 	private List<Projeto> projetos;
 	
