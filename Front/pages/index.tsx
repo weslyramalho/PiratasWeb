@@ -1,10 +1,9 @@
-import styled from 'styled-components'
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+import Header from '../src/components/partials/Header'
+
 
 export default function Home() {
-  return <Title>My page</Title>
+  return (
+    <Header />
+  )
 }
