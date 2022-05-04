@@ -1,8 +1,73 @@
 const Funcionarios = () => {
     return(
-        <div>
-            funcionarios
-        </div>
+        <form method="post">
+            <label>
+                <div>nome</div>
+                <div>
+                    <input 
+                    type="text"
+                    value=""
+                    required
+                    >
+                    </input>
+                </div>
+                <div>Email</div> 
+                <div>
+                    <input
+                    type="email"
+                    value=""
+                    required
+                    >    
+                    </input>
+                </div>
+                <div>Telefone</div> 
+                <div>
+                    <input
+                    type="number"
+                    value=""
+                    required
+                    >    
+                    </input>
+                </div>
+                <div>Cargo</div> 
+                <div>
+                    <input
+                    type="text"
+                    value=""
+                    required
+                    >    
+                    </input>
+                </div>
+                <div>Foto</div> 
+                <div>
+                    <input
+                    type=""
+                    value=""
+                    required
+                    >    
+                    </input>
+                </div>
+                <div>Salario</div> 
+                <div>
+                    <input
+                    type="number"
+                    value=""
+                    required
+                    >    
+                    </input>
+                </div>
+                <div>Senha</div> 
+                <div>
+                    <input
+                    type="password"
+                    value=""
+                    required
+                    >    
+                    </input>
+                </div>
+            </label>
+        </form>
+            
     )
 }
 export default Funcionarios;
