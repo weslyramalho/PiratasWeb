@@ -1,7 +1,8 @@
-import { FormArea } from "./styled";
+import { ContLogin, FormArea } from "./styled";
 
 const Login =()=> {
     return(
+        <ContLogin>
         <FormArea>
             <form>
                 <div>
@@ -17,6 +18,7 @@ const Login =()=> {
                 </div>
             </form>
         </FormArea>
+        </ContLogin>
 
     )
 }
