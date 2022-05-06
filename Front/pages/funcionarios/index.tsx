@@ -1,5 +1,9 @@
+import { Area, FormArea } from "./styled";
+
 const Funcionarios = () => {
     return(
+        <Area>
+        <FormArea>
         <form method="post">
             <label>
                 <div>nome</div>
@@ -65,8 +69,14 @@ const Funcionarios = () => {
                     >    
                     </input>
                 </div>
+                <div>
+                    <button>Cadastrar</button>
+                </div>
             </label>
         </form>
+
+        </FormArea>
+        </Area>
             
     )
 }
