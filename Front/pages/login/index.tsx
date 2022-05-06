@@ -4,10 +4,11 @@ const Login =()=> {
     return(
         <ContLogin>
         <FormArea>
+            
             <form>
                 <div>
                     <label>Email</label>
-                    <input type="email"/>
+                    <input className="logInput" type="email"/>
                 </div>
                 <div>
                     <label>Senha</label>
