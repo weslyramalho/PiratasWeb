@@ -1,3 +1,4 @@
+import Grafico from "../../src/components/Grafico";
 import { Container, DvBox, HadControler } from "./styled";
 
 const Projetos = () => {
@@ -7,11 +8,13 @@ const Projetos = () => {
                 PROJETOS
             </HadControler>
             <DvBox >
-               <div className="Divum"> um</div> 
-               <div className="Divdois"> dois </div>
-               <div className="DivTres">tres</div>
-               <div className="DivQuatro">quatro</div>
-               <div className="DivCinco">cinco</div>
+               <div className="Divum"> Em Andamento</div> 
+               <div className="Divdois"> Concluido </div>
+               <div className="DivTres">Atrasado</div>
+               <div className="DivQuatro">Dentro do prazo</div>
+               <div className="DivCinco">cinco
+               <Grafico />
+               </div>
                <div className="DivSeis">seis</div>               
             </DvBox>
         </Container>
