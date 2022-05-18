@@ -9,6 +9,10 @@ const Projetos = () => {
             <DvBox >
                <div className="Divum"> um</div> 
                <div className="Divdois"> dois </div>
+               <div className="DivTres">tres</div>
+               <div className="DivQuatro">quatro</div>
+               <div className="DivCinco">cinco</div>
+               <div className="DivSeis">seis</div>               
             </DvBox>
         </Container>
     )
