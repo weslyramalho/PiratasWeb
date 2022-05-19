@@ -1,8 +1,8 @@
 import Chart from "react-google-charts";
 
 export const data = [
-    ["Task", "Hours per day"],
-    ["Work", 11],
+    ["Finalizados", "Hours per day"],
+    ["EM", 11],
     ["Eat", 2],
     ["Commute", 2],
     ["Watch tv", 2],

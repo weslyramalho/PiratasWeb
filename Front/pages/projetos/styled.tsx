@@ -22,42 +22,200 @@ grid-auto-rows: minmax(100px, auto);
 .Divum {
     grid-column: 1;
     grid-row: 1;
-    background-color: red;
+    display: flex;
+    background-color: #8dc7f7;
     border-radius: 10px;
+    
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
 }
 .Divdois {
     grid-column: 2;
     grid-row: 1;
-    background-color: #f8f2f2;
+    background-color: #8dc7f7;
     border-radius: 10px;
+    display: flex;
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
 
 
 }
 .DivTres {
     grid-column: 3;
     grid-row: 1;
-    background-color: #00ff00;
+    background-color: #8dc7f7;
     border-radius: 10px;
+    display: flex;
+    h2{
+        margin: 30px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
 
 }
 .DivQuatro {
     grid-column: 4;
     grid-row: 1;
-    background-color: #0a0707;
+    background-color: #8dc7f7;
     border-radius: 10px;
+    display: flex;
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
 
 }
 .DivCinco {
-    grid-column: 1;
-    grid-row: 2/6;
-    background-color: #ff00b3;
+    grid-column: 3;
+    grid-row: 2/5;
+    h2{
+    
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+
+        font-family: 'Nunito', sans-serif;
+
+    }
 
 }
 .DivSeis {
     grid-column: 2;
-    grid-row: 2/4;
-    background-color: #0099ff;
+    grid-row: 2;
+    background-color: #8dc7f7;
+    border-radius: 10px;
+
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
 
 }
+
+.DivOito {
+    grid-column: 4;
+    grid-row: 2;
+    background-color: #8dc7f7;
+    border-radius: 10px;
+    display: flex;
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+}
+.DivNove {
+    grid-column: 4;
+    grid-row: 3;
+    background-color: #8dc7f7;
+    border-radius: 10px;
+    display: flex;
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+}
+.DivDez {
+    grid-column: 3;
+    grid-row: 3;
+    background-color: #8dc7f7;
+    border-radius: 10px;
+    display: flex;
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+}
+.DivOnze {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: #8dc7f7;
+    border-radius: 10px;
+    display: flex;
+    h2{
+        margin: 40px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+}
+.DivSete {
+    grid-column: 1/3;
+    grid-row: 3;
+    background-color: #8dc7f7;
+    border-radius: 10px;
+    display: flex;
+    p{
+        margin: 20px;
+        color: #0c0c0e;
+        font-family: 'Nunito', sans-serif;
+    }
+    h3{
+        margin: 10px;
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+}
+
 
 `
