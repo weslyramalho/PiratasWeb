@@ -5,7 +5,7 @@ const Projetos = () => {
     return(
         <Container>
             <HadControler>
-                PROJETOS
+                <h1>PROJETOS</h1>
             </HadControler>
             <DvBox >
                <div className="Divum"> 

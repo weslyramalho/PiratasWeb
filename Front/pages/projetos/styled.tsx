@@ -7,18 +7,26 @@ align-items: center;
 
 justify-content: center;
 display: flex;
+h1{
+    color: #e6e6f0;
+        font-family: 'Nunito', sans-serif;
+}
+
 `
 
 export const Container = styled.div`
 background-color: ; 
 height: 900px;
 
+
 `
 export const DvBox = styled.div`
+padding-top: 10px;
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 gap: 10px;
 grid-auto-rows: minmax(100px, auto);
+
 .Divum {
     grid-column: 1;
     grid-row: 1;
