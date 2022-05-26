@@ -3,6 +3,49 @@ import { Area, FormArea } from "./styled";
 const Funcionarios = () => {
     return(
         <Area>
+
+        <div>
+            <h1>Lista de Funcionarios ativos </h1>
+            <h2>Front-End</h2>
+            <div>
+                <ol>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+
+                </ol>
+            </div>
+            <h2>Back-End</h2>
+            <div>
+                <ol>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+
+                </ol>
+            </div>
+            <h2>Designer</h2>
+            <div>
+                <ol>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+                    <li>ALberto</li>
+
+                </ol>
+            </div>
+        </div>
         <FormArea>
         <form method="post">
             <label>
